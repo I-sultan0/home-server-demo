@@ -1,0 +1,25 @@
+name: Deploy to Home Server
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Go to project
+        run: |
+          cd ~/apps/home-server-demo
+          git pull origin dev
+
+      - name: Install dependencies
+        run: |
+          cd ~/apps/home-server-demo
+          npm install
+
+      - name: Restart application
+        run: |
+          pm2 restart home-server-demo
