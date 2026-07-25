@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ~/apps/home-server-demo
-          npm install
+          npm ci
 
       - name: Restart application
         run: |
