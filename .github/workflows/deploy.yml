@@ -10,10 +10,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Go to project
+      - name: Sync repository
         run: |
           cd ~/apps/home-server-demo
-          git pull origin dev
+          git fetch origin
+          git reset --hard origin/dev
 
       - name: Install dependencies
         run: |
