@@ -7,10 +7,15 @@ app.get("/", (req, res) => {
   res.send("Hello from Express on my Home Server!");
 });
 
+const startedAt = new Date();
+
 app.get("/health", (req, res) => {
-  res.json({
-    status: "OK",
-    uptime: process.uptime(),
+  res.status(200).json({
+    status: "healthy",
+    app: "home-server-demo",
+    version: "1.0.0",
+    uptime: `${Math.floor(process.uptime() / 60)} minutes`,
+    startedAt: startedAt.toISOString(),
     timestamp: new Date().toISOString(),
   });
 });

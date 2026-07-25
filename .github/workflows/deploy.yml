@@ -23,3 +23,8 @@ jobs:
       - name: Restart application
         run: |
           pm2 restart home-server-demo
+
+      - name: Health Check
+        run: |
+        sleep 5
+        curl --fail http://localhost:3000/health
