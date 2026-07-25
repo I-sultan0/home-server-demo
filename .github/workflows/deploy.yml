@@ -20,11 +20,11 @@ jobs:
           cd ~/apps/home-server-demo
           npm ci
 
-      - name: Restart application
+      - name: Reload application
         run: |
-          pm2 restart home-server-demo
+          pm2 reload home-server-demo
 
       - name: Health Check
         run: |
-        sleep 5
-        curl --fail http://localhost:3000/health
+          sleep 5
+          curl --fail http://localhost:3000/health
